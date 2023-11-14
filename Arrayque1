@@ -1,0 +1,42 @@
+This is the question:
+
+Our Chef oversees a coding class with students practicing problems. 
+Evaluate whether the students are solving problems in non-decreasing order of difficulty, 
+based on the difficulty ratings of the problems they have solved. 
+In other words, determine if the students are avoiding scenarios where they solve a problem with a difficulty rating of d1, 
+followed by a problem with a difficulty rating of d2 where d2 < d1.
+Output 'Yes' if the problems are attempted in non-decreasing order of difficulty rating, and 'No' if not.
+
+The answer(in C++) to this problem is: 
+
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    while (t-- > 0) {
+        int n;
+        cin >> n;
+        int arr[n];
+        for (int i = 0; i < n; i++) {
+            cin >> arr[i];
+        }
+        bool isSort = true;
+        for (int i = 1; i < n; i++) {
+            if (arr[i] < arr[i - 1]) {
+                isSort = false;
+                break; 
+                }
+        }
+        if (isSort) {
+            cout << "Yes" << endl;
+        } else {
+            cout << "No" << endl;
+        }
+    }
+    return 0;
+}
+
+
